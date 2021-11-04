@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Liste des étudiants</h1>
+    <p><a href="{{ path('student_add') }}">Enregistrer un étudiant</a></p>
+    {% if students is not empty %}
+        <table>
+            <thead>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>NumEtud</th>
+            </thead>
+
+            <tbody>
+            {% for student in students %}
+                <td>{{ student.firstname }}</td>
+                <td>{{ student.lastname }}</td>
+                <td>{{ student.numetud }}</td>
+                <td><a href="{{ path('student_delete', {'id': student.id}) }}">Supprimer l'étudiant</a></td>
+                <td><a href="{{ path('student_edit', {'id': student.id}) }}">Modifier l'étudiant</a></td>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun étudiant enregistré</p>
+    {%  endif %}
+
+    <p><a href="{{ path('index') }}">Revenir à l'accueil</a></p>
+{% endblock %}

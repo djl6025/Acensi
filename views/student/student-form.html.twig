@@ -1,0 +1,7 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <h1>{{ form_title }}</h1>
+    {{ form(form_student) }}
+    <p><a href="{{ path('index') }}">Revenir à l'accueil</a></p>
+{% endblock %}

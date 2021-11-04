@@ -1,0 +1,26 @@
+services:
+#    acme.demo.example:
+#        class:     Acme\DemoBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+#        calls:
+#            - [setService, ["@service_id"]]
+#        tags:
+#            - { name: twig.extension }
+#            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+framework:
+  serializer:
+    enabled: true
+fos_rest:
+  body_converter:
+    enabled: true
+  view:
+    formats: { json: true, xml: false, rss: false }
+    view_response_listener: true
+  serializer:
+    serialize_null: true
+  sensio_framework_extra:
+    view: { annotations: false }
+  format_listener:
+    rules:
+      - { path: '^/', priorities: [ 'json' ], fallback_format: 'json' }
+nelmio_api_doc: ~

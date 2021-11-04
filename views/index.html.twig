@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <h1>Bienvenue sur le test ACENSI</h1>
+
+    <a class="btn btn-primary" href="{{ path('students') }}">Liste des étudiants</a>
+    <a class="btn btn-primary" href="{{ path('student_add') }}">Créer un étudiant</a>
+    <a class="btn btn-primary" href="{{ path('departments') }}">Liste des départements</a>
+    <a class="btn btn-primary" href="{{ path('department_add') }}">Créer un département</a>
+{% endblock %}

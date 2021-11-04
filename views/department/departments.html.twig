@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Liste des étudiants</h1>
+    <p><a href="{{ path('department_add') }}">Créer un département</a></p>
+    {% if deparments is not empty %}
+        <table>
+            <thead>
+            <th>Name</th>
+            <th>Capacity</th>
+            </thead>
+
+            <tbody>
+            {% for department in departments %}
+                <td>{{ department.name }}</td>
+                <td>{{ department.capacity }}</td>
+                <td><a href="{{ path('department_delete', {'id': department.id}) }}">Supprimer le département</a></td>
+                <td><a href="{{ path('department_edit', {'id': department.id}) }}">Modifier le département</a></td>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun département enregistré</p>
+    {%  endif %}
+
+    <p><a href="{{ path('index') }}">Revenir à l'accueil</a></p>
+{% endblock %}
